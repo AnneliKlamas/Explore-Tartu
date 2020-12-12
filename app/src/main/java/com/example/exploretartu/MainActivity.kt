@@ -1,7 +1,10 @@
 package com.example.exploretartu
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -13,10 +16,13 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.example.exploretartu.firebase.util.FirebaseUtil
+import com.example.exploretartu.ui.login.LoginActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private val util = FirebaseUtil
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +47,33 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when{
+            item.itemId == R.id.item_logout -> {
+                logOut()
+                return true
+            }
+            else -> {
+                return super.onOptionsItemSelected(item)
+            }
+        }
+
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    private fun logOut(){
+        util.logOut()
+        Toast.makeText(this, "Logging out!", Toast.LENGTH_SHORT).show()
+        startLoginActivity()
+    }
+
+    private fun startLoginActivity(){
+        val intent: Intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
