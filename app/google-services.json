@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "923278830837",
+    "project_id": "explore-tartu",
+    "storage_bucket": "explore-tartu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923278830837:android:93843e82e0983873d829bc",
+        "android_client_info": {
+          "package_name": "com.example.exploretartu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "923278830837-2gjk8pqss6p797t3kle2f7jgs8mok5kh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3E3v7h8hNvWXZgt150dcx6iydE4LFSfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "923278830837-2gjk8pqss6p797t3kle2f7jgs8mok5kh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
