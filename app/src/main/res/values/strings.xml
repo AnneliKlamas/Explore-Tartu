@@ -25,4 +25,5 @@
     <string name="welcome">Welcome!
         <br/> Start Your adventure!</string>
     <string name="start">Start</string>
+    <string name="arrived">I arrived</string>
 </resources>

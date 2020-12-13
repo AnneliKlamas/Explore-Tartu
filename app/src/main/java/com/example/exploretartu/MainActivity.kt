@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.exploretartu.firebase.util.FirebaseUtil
 import com.example.exploretartu.ui.login.LoginActivity
+import com.example.exploretartu.ui.map.MapActivity
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -79,6 +80,10 @@ class MainActivity : AppCompatActivity() {
                 logOut()
                 return true
             }
+            item.itemId == R.id.action_settings -> {
+                startMapActivity()
+                return true
+            }
             else -> {
                 return super.onOptionsItemSelected(item)
             }
@@ -101,5 +106,10 @@ class MainActivity : AppCompatActivity() {
         val intent: Intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    private fun startMapActivity(){
+        val intent: Intent = Intent(this, MapActivity::class.java)
+        startActivity(intent)
     }
 }
