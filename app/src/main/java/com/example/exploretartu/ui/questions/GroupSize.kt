@@ -11,16 +11,18 @@ class GroupSize : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_group_size)
 
-        continue_btn.setOnClickListener {
+        to_budget_btn.setOnClickListener {
             if(group_size_tv.text.toString()!=""){
                 if(group_size_tv.text.toString().toInt()>10){
-                    group_size_tv.error = "Unfortunately group can't be bigger than 10"
+                    group_size_tv.error = getString(R.string.too_big_group)
+                }
+                else{
                     var intent = Intent(this, Budget::class.java)
                     startActivity(intent)
                 }
             }
             else{
-                group_size_tv.error = "Please enter group size"
+                group_size_tv.error = getString(R.string.empty_group)
             }
         }
     }
