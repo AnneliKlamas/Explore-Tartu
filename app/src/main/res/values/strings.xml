@@ -14,5 +14,8 @@
     <string name="email_address">Email address</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
+    <string name="google_login">Google login</string>
+    <string name="full_name">Full name</string>
+    <string name="log_out">Log out</string>
     <string name="register">Sign up here</string>
 </resources>
