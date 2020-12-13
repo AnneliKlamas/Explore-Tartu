@@ -30,5 +30,9 @@
     <string name="group">I am in a group today. It’s me and _____ other friends</string>
     <string name="group_size">How many people are there in Your group?</string>
     <string name="continue_text">Continue</string>
-
+    <string name="budget">Do You have
+any budget?</string>
+    <string name="free">Yes! I am saving at the moment. So I want my activity to be free</string>
+    <string name="exactAmount">Yes! I know exactly how much I want to spend. From: ___ To: ___</string>
+    <string name="noBudget">No! Free cheese is only found in the mousetrap. I don’t care how much my activity costs</string>
 </resources>

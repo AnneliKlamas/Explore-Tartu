@@ -11,7 +11,10 @@ class AloneOrGroup : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alone_or_group)
 
-        //alone_btn.setOnClickListener {  }
+        alone_btn.setOnClickListener {
+            var intent = Intent(this, Budget::class.java)
+            startActivity(intent)
+        }
 
         group_btn.setOnClickListener {
             var intent = Intent(this,GroupSize::class.java)
