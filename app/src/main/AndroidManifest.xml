@@ -14,7 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExploreTartu">
-        <activity android:name=".ui.questions.Weather"></activity>
+
+        <activity android:name=".ui.questions.ExactBudget"></activity>
+        <activity android:name=".ui.questions.Budget"></activity>
+        <activity android:name=".ui.questions.GroupSize" />
+        <activity android:name=".ui.questions.AloneOrGroup" />
+        <activity android:name=".ui.questions.Weather" />
         <activity android:name=".ui.register.RegisterActivity" />
         <activity android:name=".ui.map.MapActivity"/>
         <activity android:name=".ui.scanner.ScannerActivity"/>
