@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backround"
     tools:context=".ui.questions.Weather">
 
     <TextView
@@ -32,14 +31,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/outside_btn"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/margin_horisontal"
         android:layout_marginTop="@dimen/margin_vertical"
         android:layout_marginEnd="@dimen/margin_horisontal"
         android:layout_marginBottom="@dimen/margin_vertical"
-        android:background="@drawable/button_accent"
         android:text="@string/go_outside"
         android:textAllCaps="false"
         android:textColor="@color/text_dark"
@@ -58,14 +56,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/inside_btn"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/margin_horisontal"
         android:layout_marginTop="@dimen/margin_vertical"
         android:layout_marginEnd="@dimen/margin_horisontal"
         android:layout_marginBottom="@dimen/margin_vertical"
-        android:background="@drawable/button_accent"
         android:text="@string/go_inside"
         android:textAllCaps="false"
         android:textColor="@color/text_dark"
@@ -84,14 +81,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/inside_outside_btn"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/margin_horisontal"
         android:layout_marginTop="@dimen/margin_vertical"
         android:layout_marginEnd="@dimen/margin_horisontal"
         android:layout_marginBottom="@dimen/margin_vertical"
-        android:background="@drawable/button_accent"
         android:text="@string/surprise"
         android:textAllCaps="false"
         android:textColor="@color/text_dark"
