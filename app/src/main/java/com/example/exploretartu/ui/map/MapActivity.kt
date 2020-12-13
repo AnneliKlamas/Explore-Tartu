@@ -141,6 +141,15 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             if (resultCode == Activity.RESULT_OK){
                 val scanResult: String? = data?.getStringExtra("scanResult")
                 Toast.makeText(this, "$scanResult", Toast.LENGTH_SHORT).show()
+
+                val destLocation = LatLng(59.379831, 24.662455)
+                val myLocation= helper.getCurrentLocationUsingGPS()
+                myLocation?.apply {
+                    val curPos = LatLng(this.latitude, this.longitude)
+                    destLocation.apply {
+                        findAndDrawPath(curPos, destLocation)
+                    }
+                }
             }
         }
     }
