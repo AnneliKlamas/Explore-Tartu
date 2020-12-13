@@ -25,6 +25,7 @@
     <string name="welcome">Welcome!
         <br /> Start Your adventure!</string>
     <string name="start">Start</string>
+    <string name="arrived">I arrived</string>
     <string name="alone_question">Lets see how extroverted or introverted You are feeling today </string>
     <string name="alone">I am alone today</string>
     <string name="group">I am in a group today. It’s me and _____ other friends</string>

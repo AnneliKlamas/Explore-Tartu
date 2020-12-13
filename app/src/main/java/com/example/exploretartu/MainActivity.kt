@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.exploretartu.firebase.util.FirebaseUtil
 import com.example.exploretartu.ui.login.LoginActivity
+import com.example.exploretartu.ui.map.MapActivity
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -62,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
+            R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
@@ -77,6 +78,10 @@ class MainActivity : AppCompatActivity() {
         when{
             item.itemId == R.id.item_logout -> {
                 logOut()
+                return true
+            }
+            item.itemId == R.id.action_settings -> {
+                startMapActivity()
                 return true
             }
             else -> {
@@ -101,5 +106,10 @@ class MainActivity : AppCompatActivity() {
         val intent: Intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    private fun startMapActivity(){
+        val intent: Intent = Intent(this, MapActivity::class.java)
+        startActivity(intent)
     }
 }
