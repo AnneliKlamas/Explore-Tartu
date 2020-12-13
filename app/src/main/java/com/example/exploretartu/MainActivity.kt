@@ -1,5 +1,6 @@
 package com.example.exploretartu
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -18,6 +19,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.exploretartu.firebase.util.FirebaseUtil
 import com.example.exploretartu.ui.login.LoginActivity
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.MultiplePermissionsReport
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +33,26 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //For handeling perrmissions
+        Dexter.withContext(this)
+            .withPermissions(
+                Manifest.permission.CAMERA,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ).withListener(object : MultiplePermissionsListener {
+                override fun onPermissionsChecked(report: MultiplePermissionsReport) {
+                    report?.let {
+                        if(report.areAllPermissionsGranted()){
+                            Toast.makeText(applicationContext, "OK", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+
+                override fun onPermissionRationaleShouldBeShown(permissions: List<PermissionRequest?>?, token: PermissionToken?) {
+                    token?.continuePermissionRequest()
+                }
+            }).check()
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 

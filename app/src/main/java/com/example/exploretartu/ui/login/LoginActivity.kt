@@ -1,9 +1,10 @@
 package com.example.exploretartu.ui.login
 
+import android.Manifest
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.exploretartu.MainActivity
 import com.example.exploretartu.R
 import com.example.exploretartu.ui.register.RegisterActivity
@@ -16,13 +17,20 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.MultiplePermissionsReport
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import kotlinx.android.synthetic.main.activity_login.*
+
 
 private lateinit var auth: FirebaseAuth
 private lateinit var mGoogleSignInClient: GoogleSignInClient
 private val RC_GOOGLE_SIGN_IN: Int = 100
 
 class LoginActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
