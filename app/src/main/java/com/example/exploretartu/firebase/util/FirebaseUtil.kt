@@ -10,4 +10,8 @@ object FirebaseUtil {
         auth.signOut()
     }
 
+    fun auth(): FirebaseAuth{
+        return auth
+    }
+
 }

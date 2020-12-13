@@ -65,6 +65,10 @@ dependencies {
     //Google services integration
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.maps.android:android-maps-utils:0.5'
+
+    //curl helper
+    implementation 'com.koushikdutta.ion:ion:3.0.9'
 
     //Testing components
     testImplementation 'junit:junit:4.+'
