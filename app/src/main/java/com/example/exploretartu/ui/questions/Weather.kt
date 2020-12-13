@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.exploretartu.R
 import kotlinx.android.synthetic.main.activity_weather.*
-import kotlinx.android.synthetic.main.fragment_home.*
 
 class Weather : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +12,7 @@ class Weather : AppCompatActivity() {
         setContentView(R.layout.activity_weather)
 
 
-        var intent = Intent(this, AloneOrGroup::class.java)
+        val intent = Intent(this, AloneOrGroup::class.java)
         inside_btn.setOnClickListener {
             startActivity(intent)
         }
@@ -23,6 +22,5 @@ class Weather : AppCompatActivity() {
         inside_outside_btn.setOnClickListener {
             startActivity(intent)
         }
-
     }
 }
