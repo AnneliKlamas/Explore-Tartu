@@ -15,7 +15,11 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="google_login">Google login</string>
-    <string name="register">Register</string>
     <string name="full_name">Full name</string>
     <string name="log_out">Log out</string>
+    <string name="register">Sign up here</string>
+    <string name="todays_weather">How do You feel about todays weather?</string>
+    <string name="go_outside">I want to do something outside</string>
+    <string name="go_inside">I want to do something inside</string>
+    <string name="surprise">Surprise me!</string>
 </resources>

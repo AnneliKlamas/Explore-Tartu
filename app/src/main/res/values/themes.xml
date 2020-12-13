@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.ExploreTartu" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">@color/text_dark</item>
+        <item name="colorPrimaryVariant">@color/accent_color</item>
+        <item name="colorOnPrimary">@color/backround</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/accent_color</item>
