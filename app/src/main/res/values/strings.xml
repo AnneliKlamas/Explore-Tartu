@@ -39,6 +39,9 @@ any budget?</string>
     <string name="budget_size">What is Your budget size per person?</string>
     <string name="from">From:</string>
     <string name="to">To:</string>
+    <string name="options">There are Your options:</string>
+    <string name="dont_like">I don’t like both of them</string>
+
 
     <!-- Error messages -->
     <string name="min_error">"Please fill minimal sum"</string>

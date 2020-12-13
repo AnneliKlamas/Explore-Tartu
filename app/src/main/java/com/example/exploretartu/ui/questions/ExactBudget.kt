@@ -12,12 +12,16 @@ class ExactBudget : AppCompatActivity() {
         setContentView(R.layout.activity_exact_budget)
 
         to_choice_btn.setOnClickListener {
-            var min = min_sum_et.text.toString()
-            var max = max_sum_et.text.toString()
+            val min = min_sum_et.text.toString()
+            val max = max_sum_et.text.toString()
 
             if(min!=""  &&max!=""){
                 if(max.toInt()>300){
                     max_sum_et.error = getString(R.string.too_big_sum)
+                }
+                else{
+                    val intent = Intent(this, ChooseActivity::class.java)
+                    startActivity(intent)
                 }
             }
             else if (min==""){

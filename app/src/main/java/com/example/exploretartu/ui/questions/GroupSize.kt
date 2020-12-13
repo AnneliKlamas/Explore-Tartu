@@ -17,7 +17,7 @@ class GroupSize : AppCompatActivity() {
                     group_size_tv.error = getString(R.string.too_big_group)
                 }
                 else{
-                    var intent = Intent(this, Budget::class.java)
+                    val intent = Intent(this, Budget::class.java)
                     startActivity(intent)
                 }
             }
