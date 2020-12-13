@@ -28,5 +28,7 @@
     <string name="alone_question">Lets see how extroverted or introverted You are feeling today </string>
     <string name="alone">I am alone today</string>
     <string name="group">I am in a group today. It’s me and _____ other friends</string>
+    <string name="group_size">How many people are there in Your group?</string>
+    <string name="continue_text">Continue</string>
 
 </resources>
