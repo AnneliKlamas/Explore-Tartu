@@ -39,13 +39,13 @@ any budget?</string>
     <string name="from">From:</string>
     <string name="to">To:</string>
     <string name="options">There are Your options:</string>
-    <string name="dont_like">I don’t like both of them</string>
+    <string name="dont_like">I don’t like neither of them</string>
     <string name="visit">You are going to %1$s </string>
 
     <string name="activity_name">Activity name</string>
     <string name="task_location_coordinates">Task location coordinates</string>
     <string name="indoor_or_outdoor">Is it indoor or outdoor activity?</string>
-    <string name="price_question">How much per person it costs?</string>
+    <string name="price_question">How much per person does it costs?</string>
     <string name="minimum">Minimum</string>
     <string name="indoor">Indoor</string>
     <string name="outdoor">Outdoor</string>
@@ -55,15 +55,15 @@ any budget?</string>
     <string name="how_many_people">How many people can participate?</string>
     <string name="add_activity">Add activity</string>
     <string name="home">Home</string>
-    <string name="concratulations">Concratulations You completed Your task!</string>
+    <string name="congratulations">Congratulations, You completed Your task!</string>
     <string name="settings">Settings</string>
     <string name="go_back">Go back</string>
 
     <!-- Error messages -->
     <string name="max_smaller_min">Max budget value smaller than minimum!</string>
-    <string name="min_error">Please fill minimal sum</string>
-    <string name="max_error">Please fill maximal sum</string>
-    <string name="too_big_group">Unfortunately group cant be bigger than 10</string>
+    <string name="min_error">Please fill minimum sum</string>
+    <string name="max_error">Please fill maximum sum</string>
+    <string name="too_big_group">Unfortunately group can\'t be bigger than 10</string>
     <string name="empty_group">Please enter group size</string>
     <string name="too_big_sum">Sorry, sum too big</string>
     <string name="history">History</string>
