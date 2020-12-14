@@ -21,6 +21,7 @@ class GroupSize : AppCompatActivity() {
                     intentBudget.putExtra("indoor", intent.getBooleanExtra("indoor", true))
                     intentBudget.putExtra("group", group_size_tv.text.toString().toInt())
                     startActivity(intentBudget)
+                    finish()
                 }
             }
             else{

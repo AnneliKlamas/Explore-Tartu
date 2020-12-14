@@ -29,6 +29,7 @@ class ExactBudget : AppCompatActivity() {
                     intentExact.putExtra("budgetMin",min.toDouble())
                     intentExact.putExtra("budgetMax",max.toDouble())
                     startActivity(intentExact)
+                    finish()
                 }
             }
             else if (min==""){
