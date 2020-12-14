@@ -9,7 +9,7 @@
             android:title="@string/home"
             android:titleTextColor="@color/accent_color" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_activity"
             android:title="@string/add_activity"
             android:titleTextColor="@color/accent_color"/>
     </group>

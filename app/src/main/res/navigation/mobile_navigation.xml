@@ -12,8 +12,8 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_activity"
         android:name="com.example.exploretartu.ui.addTask.AddTaskFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/add_activity"
         tools:layout="@layout/fragment_add_task" />
 </navigation>
