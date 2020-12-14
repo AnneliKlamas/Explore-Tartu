@@ -21,6 +21,10 @@ class ExactBudget : AppCompatActivity() {
                 }
                 else{
                     val intent = Intent(this, ChooseActivity::class.java)
+                    intent.putExtra("indoor",intent.getBooleanExtra("indoor", true))
+                    intent.putExtra("group",intent.getIntExtra("group", 1))
+                    intent.putExtra("budgetMin",min)
+                    intent.putExtra("budgetMax",max)
                     startActivity(intent)
                 }
             }

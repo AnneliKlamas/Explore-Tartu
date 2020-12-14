@@ -53,10 +53,10 @@ object FirebaseUtil {
     }
 
     fun getMatchingTasks(budgetMin: Double, budgetMax: Double, group: Int, indoor: Boolean,
-                         outdoor: Boolean, onComplete: (Task, Task) -> Unit){
+                         onComplete: (Task, Task) -> Unit){
 
         firestoreInstance.collection("tasks").whereEqualTo("indoor", indoor)
-            .whereEqualTo("outdoor",outdoor).whereGreaterThanOrEqualTo("price",budgetMin)
+            .whereGreaterThanOrEqualTo("price",budgetMin)
             .whereLessThanOrEqualTo("price",budgetMax).whereGreaterThanOrEqualTo("minPersons", group)
             .whereLessThanOrEqualTo("maxPersons",group)
             .addSnapshotListener { value, e ->
