@@ -54,6 +54,7 @@
         android:textSize="@dimen/text"
         app:backgroundTint="@color/text_dark"
         android:ems="10"
+        android:digits="0123456789."
         android:inputType="numberSigned"
         app:layout_constraintBottom_toTopOf="@+id/guideline15"
         app:layout_constraintEnd_toEndOf="parent"
