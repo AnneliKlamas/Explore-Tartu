@@ -15,7 +15,7 @@ class Budget : AppCompatActivity() {
             val intentBudget = Intent(this, ExactBudget::class.java)
             intentBudget.putExtra("indoor",intent.getBooleanExtra("indoor", true))
             intentBudget.putExtra("group",intent.getIntExtra("group", 1))
-            startActivity(intent)
+            startActivity(intentBudget)
             finish()
         }
         no_budget_btn.setOnClickListener {

@@ -32,14 +32,13 @@ object FirebaseUtil {
                 for (doc in value!!) {
                     doc?.let {
                         val task = doc.toObject(Task::class.java)
-                        if(task.price>=budgetMin) {
-                            if (task.price <= budgetMax) {
-                                if(task.minPersons<=group){
-                                    if(task.maxPersons>=group){
-                                        tasksList.add(task)
-                                    }
+                        if(task.price <= budgetMin || task.price >= budgetMax) {
+                            if(task.minPersons <= group){
+                                if(task.maxPersons >= group){
+                                    tasksList.add(task)
                                 }
                             }
+
                         }
                     }
                 }

@@ -19,13 +19,16 @@ class ExactBudget : AppCompatActivity() {
                 if(max.toInt()>300){
                     max_sum_et.error = getString(R.string.too_big_sum)
                 }
+                else if (max.toDouble() < min.toDouble()){
+                    max_sum_et.error = getString(R.string.max_smaller_min)
+                }
                 else{
-                    val intent = Intent(this, ChooseActivity::class.java)
-                    intent.putExtra("indoor",intent.getBooleanExtra("indoor", true))
-                    intent.putExtra("group",intent.getIntExtra("group", 1))
-                    intent.putExtra("budgetMin",min)
-                    intent.putExtra("budgetMax",max)
-                    startActivity(intent)
+                    val intentExact = Intent(this, ChooseActivity::class.java)
+                    intentExact.putExtra("indoor",intent.getBooleanExtra("indoor", true))
+                    intentExact.putExtra("group",intent.getIntExtra("group", 1))
+                    intentExact.putExtra("budgetMin",min.toDouble())
+                    intentExact.putExtra("budgetMax",max.toDouble())
+                    startActivity(intentExact)
                 }
             }
             else if (min==""){

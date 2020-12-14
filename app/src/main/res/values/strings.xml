@@ -59,6 +59,7 @@ any budget?</string>
     <string name="settings">Settings</string>
 
     <!-- Error messages -->
+    <string name="max_smaller_min">Max budget value smaller than minimum!</string>
     <string name="min_error">Please fill minimal sum</string>
     <string name="max_error">Please fill maximal sum</string>
     <string name="too_big_group">Unfortunately group cant be bigger than 10</string>
