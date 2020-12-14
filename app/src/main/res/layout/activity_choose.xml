@@ -28,6 +28,8 @@
         android:layout_marginTop="@dimen/margin_vertical"
         android:layout_marginEnd="@dimen/margin_horisontal"
         android:layout_marginBottom="@dimen/margin_vertical"
+
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/guideline29"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,6 +43,7 @@
         android:layout_marginTop="@dimen/margin_vertical"
         android:layout_marginEnd="@dimen/margin_horisontal"
         android:layout_marginBottom="@dimen/margin_vertical"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/guideline30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,6 +58,7 @@
         android:layout_marginEnd="@dimen/margin_horisontal"
         android:layout_marginBottom="@dimen/margin_vertical"
         android:text="@string/dont_like"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/guideline31"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,4 +103,14 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.9"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/pb_progress"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline29" />
 </androidx.constraintlayout.widget.ConstraintLayout>
