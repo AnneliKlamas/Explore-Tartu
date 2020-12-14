@@ -11,8 +11,8 @@ data class Task(
     var taskLocation: ArrayList<Double>,
     var indoor: Boolean,
     var price: Double,
-    var alone: Boolean,
-    var group: Boolean
+    var minPersons: Int,
+    var maxPersons: Int
 ): Parcelable
 {
     constructor(): this(
@@ -21,7 +21,7 @@ data class Task(
         arrayListOf(),
         true,
         -1.0,
-        true,
-        true
+        0,
+        0
     )
 }
