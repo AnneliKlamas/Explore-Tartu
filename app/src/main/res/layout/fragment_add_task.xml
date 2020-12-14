@@ -354,14 +354,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/indoor" />
+            android:buttonTint="@color/text_dark"
+            android:text="@string/indoor"
+            android:textColor="@color/text_dark" />
 
         <RadioButton
             android:id="@+id/outdoor_rb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/outdoor" />
+            android:buttonTint="@color/text_dark"
+            android:text="@string/outdoor"
+            android:textColor="@color/text_dark" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
