@@ -171,6 +171,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 val scanResult: String? = data?.getStringExtra("scanResult")
                 Toast.makeText(this, "$scanResult", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("snake", true)
                 startActivity(intent)
                 finish()
             }
