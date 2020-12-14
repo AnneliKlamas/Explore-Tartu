@@ -16,6 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="@color/text_dark"
             app:popupTheme="@style/Theme.ExploreTartu.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
