@@ -8,60 +8,80 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_horisontal"
         android:layout_marginTop="@dimen/margin_vertical"
+        android:layout_marginEnd="@dimen/margin_horisontal"
         android:text="@string/activity_name"
+        android:textAlignment="viewStart"
+        android:textSize="@dimen/text"
         app:layout_constraintBottom_toTopOf="@+id/activity_name_et"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline33"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_horisontal"
         android:layout_marginTop="@dimen/margin_vertical"
+        android:layout_marginEnd="@dimen/margin_horisontal"
         android:text="@string/task_location_coordinates"
+        android:textAlignment="viewStart"
+        android:textSize="@dimen/text"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline34"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_horisontal"
         android:layout_marginTop="@dimen/margin_vertical"
+        android:layout_marginEnd="@dimen/margin_horisontal"
         android:text="@string/indoor_or_outdoor"
+        android:textAlignment="viewStart"
+        android:textSize="@dimen/text"
         app:layout_constraintBottom_toTopOf="@+id/indoor_or_rg"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline35"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_horisontal"
         android:layout_marginTop="@dimen/margin_vertical"
+        android:layout_marginEnd="@dimen/margin_horisontal"
         android:text="@string/price_question"
+        android:textAlignment="viewStart"
+        android:textSize="@dimen/text"
         app:layout_constraintBottom_toTopOf="@+id/price_et"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline36"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_horisontal"
         android:layout_marginTop="@dimen/margin_vertical"
+        android:layout_marginEnd="@dimen/margin_horisontal"
         android:text="@string/how_many_people"
+        android:textAlignment="viewStart"
+        android:textSize="@dimen/text"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline37"
         app:layout_constraintVertical_chainStyle="packed" />
@@ -156,7 +176,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/latitude"
-            android:textAlignment="viewStart" />
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/text" />
 
         <TextView
             android:id="@+id/textView22"
@@ -164,7 +185,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/longitude"
-            android:textAlignment="viewStart" />
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/text" />
     </LinearLayout>
 
     <LinearLayout
@@ -247,7 +269,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/minimum"
-            android:textAlignment="viewStart" />
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/text" />
 
         <TextView
             android:id="@+id/textView24"
@@ -255,7 +278,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/maximum"
-            android:textAlignment="viewStart" />
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/text" />
     </LinearLayout>
 
     <LinearLayout
@@ -306,6 +330,7 @@
         android:layout_marginEnd="@dimen/margin_vertical"
         android:layout_marginBottom="@dimen/margin_vertical"
         android:text="@string/add_activity"
+        android:textSize="@dimen/text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline38" />
