@@ -12,26 +12,29 @@ class Budget : AppCompatActivity() {
         setContentView(R.layout.activity_budget)
 
         budget_btn.setOnClickListener {
-            val intent = Intent(this, ExactBudget::class.java)
-            intent.putExtra("indoor",intent.getBooleanExtra("indoor", true))
-            intent.putExtra("group",intent.getIntExtra("group", 1))
+            val intentBudget = Intent(this, ExactBudget::class.java)
+            intentBudget.putExtra("indoor",intent.getBooleanExtra("indoor", true))
+            intentBudget.putExtra("group",intent.getIntExtra("group", 1))
             startActivity(intent)
+            finish()
         }
         no_budget_btn.setOnClickListener {
-            val intent = Intent(this, ChooseActivity::class.java)
-            intent.putExtra("indoor",intent.getBooleanExtra("indoor", true))
-            intent.putExtra("group",intent.getIntExtra("group", 1))
-            intent.putExtra("budgetMin",0.0)
-            intent.putExtra("budgetMax",100000.0)
-            startActivity(intent)
+            val intentNoBudget = Intent(this, ChooseActivity::class.java)
+            intentNoBudget.putExtra("indoor",intent.getBooleanExtra("indoor", true))
+            intentNoBudget.putExtra("group",intent.getIntExtra("group", 1))
+            intentNoBudget.putExtra("budgetMin",0.0)
+            intentNoBudget.putExtra("budgetMax",100000.0)
+            startActivity(intentNoBudget)
+            finish()
         }
         free_btn.setOnClickListener {
-            val intent = Intent(this, ChooseActivity::class.java)
-            intent.putExtra("indoor",intent.getBooleanExtra("indoor", true))
-            intent.putExtra("group",intent.getIntExtra("group", 1))
-            intent.putExtra("budgetMin",0.0)
-            intent.putExtra("budgetMax",0.0)
-            startActivity(intent)
+            val intentFree = Intent(this, ChooseActivity::class.java)
+            intentFree.putExtra("indoor",intent.getBooleanExtra("indoor", true))
+            intentFree.putExtra("group",intent.getIntExtra("group", 1))
+            intentFree.putExtra("budgetMin",0.0)
+            intentFree.putExtra("budgetMax",0.0)
+            startActivity(intentFree)
+            finish()
         }
     }
 }

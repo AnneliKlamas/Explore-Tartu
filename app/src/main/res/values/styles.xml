@@ -3,13 +3,13 @@
     <style name="buttonStyle">
         <item name="android:background">@drawable/button_accent</item>
         <item name="textAllCaps">false</item>
-        <item name="android:textSize">@dimen/text</item>
+        <item name="android:textSize">@dimen/big_text</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/text_dark</item>
     </style>
     <style name="textViewStyle">
         <item name="android:textColor">@color/text_dark</item>
-        <item name="android:textSize">@dimen/text</item>
+        <item name="android:textSize">@dimen/big_text</item>
         <item name="android:gravity">center</item>
     </style>
 </resources>

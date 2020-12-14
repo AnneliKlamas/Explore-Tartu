@@ -26,7 +26,6 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
-import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,10 +49,7 @@ class MainActivity : AppCompatActivity() {
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ).withListener(object : MultiplePermissionsListener {
                 override fun onPermissionsChecked(report: MultiplePermissionsReport) {
-                    report?.let {
-                        if(report.areAllPermissionsGranted()){
-                            //Toast.makeText(applicationContext, "OK", Toast.LENGTH_SHORT).show()
-                        }
+                    report.let {
                     }
                 }
 
@@ -68,9 +64,9 @@ class MainActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
 
-        var headerView = navView.getHeaderView(0)
-        var tvNavUsername = headerView.findViewById<TextView>(R.id.tv_nav_username)
-        var tvNavEmail = headerView.findViewById<TextView>(R.id.tv_nav_email)
+        val headerView = navView.getHeaderView(0)
+        val tvNavUsername = headerView.findViewById<TextView>(R.id.tv_nav_username)
+        val tvNavEmail = headerView.findViewById<TextView>(R.id.tv_nav_email)
 
         tvNavUsername.text = user.displayName
         tvNavEmail.text = user.email
@@ -91,17 +87,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when{
-            item.itemId == R.id.item_logout -> {
+        return when (item.itemId) {
+            R.id.item_logout -> {
                 logOut()
-                return true
+                true
             }
-            item.itemId == R.id.action_settings -> {
+            R.id.action_settings -> {
                 startMapActivity()
-                return true
+                true
             }
             else -> {
-                return super.onOptionsItemSelected(item)
+                super.onOptionsItemSelected(item)
             }
         }
 
@@ -119,13 +115,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startLoginActivity(){
-        val intent: Intent = Intent(this, LoginActivity::class.java)
+        val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
     }
 
     private fun startMapActivity(){
-        val intent: Intent = Intent(this, MapActivity::class.java)
+        val intent = Intent(this, MapActivity::class.java)
         startActivity(intent)
     }
 }
