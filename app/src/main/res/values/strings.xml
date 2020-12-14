@@ -43,12 +43,31 @@ any budget?</string>
     <string name="dont_like">I don’t like both of them</string>
     <string name="visit">You  are going to visit</string>
 
+    <string name="activity_name">Activity name</string>
+    <string name="task_location_coordinates">Task location coordinates</string>
+    <string name="indoor_or_outdoor">Is it indoor or outdoor activity?</string>
+    <string name="price_question">How much per person it costs?</string>
+    <string name="minimum">Minimum</string>
+    <string name="indoor">Indoor</string>
+    <string name="outdoor">Outdoor</string>
+    <string name="latitude">Latitude</string>
+    <string name="maximum">Maximum</string>
+    <string name="longitude">Longitude</string>
+    <string name="how_many_people">How many people can participate?</string>
+    <string name="add_activity">Add activity</string>
 
     <!-- Error messages -->
-    <string name="min_error">"Please fill minimal sum"</string>
-    <string name="max_error">"Please fill maximal sum"</string>
+    <string name="min_error">Please fill minimal sum</string>
+    <string name="max_error">Please fill maximal sum</string>
     <string name="too_big_group">Unfortunately group cant be bigger than 10</string>
     <string name="empty_group">Please enter group size</string>
     <string name="too_big_sum">Sorry, sum too big</string>
+    <string name="empty_activity_name">Please add activity name</string>
+    <string name="empty_latitude">Please add latitude</string>
+    <string name="empty_longitude">Please add longitude</string>
+    <string name="empty_price">Please add price</string>
+    <string name="empty_min_person">Please add minimum number of people</string>
+    <string name="empty_max_person">Please add maximum number of people</string>
+    <string name="select_indoor_or">Please select indoor or outdoor</string>
 
 </resources>

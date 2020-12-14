@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.exploretartu.ui.slideshow.SlideshowFragment"
+        android:name="com.example.exploretartu.ui.addTask.AddTaskFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_add_task" />
 </navigation>
