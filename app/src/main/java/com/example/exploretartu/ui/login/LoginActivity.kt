@@ -1,6 +1,5 @@
 package com.example.exploretartu.ui.login
 
-import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -17,11 +16,6 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.MultiplePermissionsReport
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionRequest
-import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import kotlinx.android.synthetic.main.activity_login.*
 
 
@@ -62,13 +56,13 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun startRegisterActivity(){
-        val intent: Intent = Intent(this, RegisterActivity::class.java)
+        val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
         finish()
     }
 
     private fun startMainActivity(){
-        val intent: Intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
     }
@@ -93,7 +87,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun startGoogleLogin(){
-        var signinIntent: Intent = mGoogleSignInClient.signInIntent
+        val signinIntent: Intent = mGoogleSignInClient.signInIntent
         startActivityForResult(signinIntent, RC_GOOGLE_SIGN_IN)
     }
 
@@ -101,14 +95,14 @@ class LoginActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == RC_GOOGLE_SIGN_IN){
-            var task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
             handdleSigninResult(task)
         }
     }
 
     private fun handdleSigninResult(task: Task<GoogleSignInAccount>) {
         try {
-            var acc: GoogleSignInAccount? = task.getResult(ApiException::class.java)
+            val acc: GoogleSignInAccount? = task.getResult(ApiException::class.java)
             Toast.makeText(this, "Signed in successfully", Toast.LENGTH_SHORT).show()
             FirebaseGoogleAuth(acc)
         }
@@ -120,7 +114,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun FirebaseGoogleAuth(acc: GoogleSignInAccount?) {
         acc?.apply {
-            var authCredential: AuthCredential = GoogleAuthProvider.getCredential(acc.idToken, null)
+            val authCredential: AuthCredential = GoogleAuthProvider.getCredential(acc.idToken, null)
             auth.signInWithCredential(authCredential).addOnCompleteListener {
                 if (it.isSuccessful){
                     val user = auth.currentUser

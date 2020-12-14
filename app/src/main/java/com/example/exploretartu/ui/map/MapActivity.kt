@@ -10,15 +10,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.budiyev.android.codescanner.AutoFocusMode.SAFE
-import com.budiyev.android.codescanner.CodeScanner
-import com.budiyev.android.codescanner.CodeScannerView
-import com.budiyev.android.codescanner.DecodeCallback
-import com.budiyev.android.codescanner.ErrorCallback
-import com.budiyev.android.codescanner.ScanMode
 import com.example.exploretartu.MainActivity
 import com.example.exploretartu.R
-import com.example.exploretartu.firebase.util.FirebaseUtil
 import com.example.exploretartu.ui.scanner.ScannerActivity
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -26,7 +19,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
-import com.google.android.gms.tasks.Task
 import com.google.gson.JsonObject
 import com.google.maps.android.PolyUtil
 import com.karumi.dexter.Dexter
@@ -43,7 +35,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private val SCANNER_REQUEST_CODE = 100
     private lateinit var mMap: GoogleMap
     private lateinit var helper: LocationHelper
-    private val util = FirebaseUtil
     private lateinit var task: com.example.exploretartu.dao.Task
 
 
@@ -51,7 +42,13 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
 
-        task = intent.getParcelableExtra<com.example.exploretartu.dao.Task>("task")!!
+        task = if(intent.getBooleanExtra("isTask1",true)){
+            intent.getParcelableExtra("task1")!!
+        }
+        else{
+            intent.getParcelableExtra("task2")!!
+        }
+
         //Toast.makeText(this, task.toString(), Toast.LENGTH_SHORT).show()
 
         val mapFragment =
@@ -82,7 +79,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                     Manifest.permission.ACCESS_COARSE_LOCATION
                 ).withListener(object : MultiplePermissionsListener {
                     override fun onPermissionsChecked(report: MultiplePermissionsReport) {
-                        report?.let {
+                        report.let {
                             if(report.areAllPermissionsGranted()){
                                 Toast.makeText(applicationContext, "OK", Toast.LENGTH_SHORT).show()
                             }
@@ -108,14 +105,14 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-    fun findAndDrawPath(currentPos: LatLng, destPos: LatLng){
+    private fun findAndDrawPath(currentPos: LatLng, destPos: LatLng){
         mMap.clear()
         mMap.addMarker(MarkerOptions().position(currentPos).title("You are here"))
-        var key: String = ""
+        var key: String
         applicationContext.packageManager.getApplicationInfo(application.packageName, PackageManager.GET_META_DATA).apply { key =
             metaData.getString("com.google.android.geo.API_KEY").toString()
         }
-        val url: String = "https://maps.googleapis.com/maps/api/directions/json?origin=${currentPos.latitude},${currentPos.longitude}&destination=${destPos.latitude},${destPos.longitude}&mode=walking&key=$key"
+        val url = "https://maps.googleapis.com/maps/api/directions/json?origin=${currentPos.latitude},${currentPos.longitude}&destination=${destPos.latitude},${destPos.longitude}&mode=walking&key=$key"
 
         val waypoints: MutableList<List<LatLng>> = ArrayList()
 
@@ -150,7 +147,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun startScannerActivity(){
-        val intent: Intent = Intent(this, ScannerActivity::class.java)
+        val intent = Intent(this, ScannerActivity::class.java)
         startActivityForResult(intent, SCANNER_REQUEST_CODE)
     }
 

@@ -18,31 +18,15 @@ class LocationHelper(private val mContext: Context) : LocationListener {
         const val MIN_TIME_BW_UPDATES = (1000 * 60 * 1).toLong() // 1 minute
     }
     // Flags
-    var isGPSEnabled = false
-    var isNetworkEnabled = false
+    private var isGPSEnabled = false
+    private var isNetworkEnabled = false
 
-    var locationManager: LocationManager
+    private var locationManager: LocationManager = mContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
     init {
-        locationManager = mContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
         isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
 
-    }
-
-    @SuppressLint("MissingPermission")
-    fun getCurrenLocationUsingNetwork() : Location?{
-        if (!isNetworkEnabled) {
-            Log.v("TAG ","Network not enabled!")
-            return null
-        } else {
-            locationManager.requestLocationUpdates(
-                LocationManager.NETWORK_PROVIDER,
-                MIN_TIME_BW_UPDATES,
-                MIN_DISTANCE_CHANGE_FOR_UPDATES.toFloat(), this
-            )
-            return locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
-        }
     }
 
     @SuppressLint("MissingPermission")

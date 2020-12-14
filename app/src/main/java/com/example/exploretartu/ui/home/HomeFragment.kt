@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         start_btn.setOnClickListener {
-            var intent = Intent(context, Weather::class.java)
+            val intent = Intent(context, Weather::class.java)
             startActivity(intent)
         }
     }

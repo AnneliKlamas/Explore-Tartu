@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -37,9 +36,9 @@ class AddTaskFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         add_activity_btn.setOnClickListener {
-            var task = Task()
+            val task = Task()
             var noErrors = true
-            var location = arrayOf(0.0,0.0)
+            val location = arrayOf(0.0,0.0)
             if(activity_name_et.text.toString()!=""){
                 task.taskName = activity_name_et.text.toString()
             }

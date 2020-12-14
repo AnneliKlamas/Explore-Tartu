@@ -10,7 +10,7 @@
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Concratulations You completed Your task!"
+        android:text="@string/concratulations"
         android:textSize="@dimen/very_big_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
