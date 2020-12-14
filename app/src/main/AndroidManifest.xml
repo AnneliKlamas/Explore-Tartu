@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExploreTartu">
-        <activity android:name=".ui.questions.ChooseActivity"></activity>
+        <activity android:name=".ui.Congartulations"></activity>
+        <activity android:name=".ui.questions.ChooseActivity" />
         <activity android:name=".ui.questions.ExactBudget" />
         <activity android:name=".ui.questions.Budget" />
         <activity android:name=".ui.questions.GroupSize" />

@@ -58,9 +58,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
-        util.getMatchingTasks(0.0, 0.0, 1, true, true, onComplete = {task, task2 ->  
-
-        })
         mMap = googleMap
         if (ActivityCompat.checkSelfPermission(
                 this,
