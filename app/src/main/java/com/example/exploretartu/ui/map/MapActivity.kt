@@ -25,6 +25,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
+import com.google.android.gms.tasks.Task
 import com.google.gson.JsonObject
 import com.google.maps.android.PolyUtil
 import com.karumi.dexter.Dexter
@@ -57,6 +58,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
+        util.getMatchingTasks(0.0, 0.0, 1, true, true, onComplete = {task, task2 ->  
+
+        })
         mMap = googleMap
         if (ActivityCompat.checkSelfPermission(
                 this,
