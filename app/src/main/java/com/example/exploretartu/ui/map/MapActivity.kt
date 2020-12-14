@@ -10,23 +10,15 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.budiyev.android.codescanner.AutoFocusMode.SAFE
-import com.budiyev.android.codescanner.CodeScanner
-import com.budiyev.android.codescanner.CodeScannerView
-import com.budiyev.android.codescanner.DecodeCallback
-import com.budiyev.android.codescanner.ErrorCallback
-import com.budiyev.android.codescanner.ScanMode
 import com.example.exploretartu.MainActivity
 import com.example.exploretartu.R
 import com.example.exploretartu.firebase.util.FirebaseUtil
 import com.example.exploretartu.ui.scanner.ScannerActivity
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
-import com.google.android.gms.tasks.Task
 import com.google.gson.JsonObject
 import com.google.maps.android.PolyUtil
 import com.karumi.dexter.Dexter
@@ -53,6 +45,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
         task = intent.getParcelableExtra<com.example.exploretartu.dao.Task>("task")!!
         //Toast.makeText(this, task.toString(), Toast.LENGTH_SHORT).show()
+
+        val visit: String = tv_visit.text.toString()
+        tv_visit.text = "$visit ${task.taskName}"
 
         val mapFragment =
             supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
@@ -100,18 +95,32 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val destLocation = LatLng(task.taskLocation[0], task.taskLocation[1])
         val myLocation= helper.getCurrentLocationUsingGPS()
+        var curPos = LatLng(0.0, 0.0)
         myLocation?.apply {
-            val curPos = LatLng(this.latitude, this.longitude)
+            curPos = LatLng(this.latitude, this.longitude)
             destLocation.apply {
                 findAndDrawPath(curPos, destLocation)
             }
+        }
+        mMap.setOnMapLoadedCallback {
+            val builder = LatLngBounds.Builder()
+            builder.include(curPos)
+            builder.include(destLocation)
+            val bounds: LatLngBounds = builder.build()
+
+            val cu: CameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, 100)
+            mMap.animateCamera(cu, object : GoogleMap.CancelableCallback {
+                override fun onCancel() {}
+                override fun onFinish() {
+                }
+            })
         }
     }
 
     fun findAndDrawPath(currentPos: LatLng, destPos: LatLng){
         mMap.clear()
-        mMap.addMarker(MarkerOptions().position(currentPos).title("You are here"))
-        var key: String = ""
+        //mMap.addMarker(MarkerOptions().position(currentPos).title("You are here"))
+        var key: String
         applicationContext.packageManager.getApplicationInfo(application.packageName, PackageManager.GET_META_DATA).apply { key =
             metaData.getString("com.google.android.geo.API_KEY").toString()
         }
@@ -147,6 +156,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 mMap.addMarker(MarkerOptions().position(destPos).title(loc).snippet("Travel time: $duration (distance: $distance)"))
             }
+
     }
 
     private fun startScannerActivity(){
