@@ -14,12 +14,17 @@ class Weather : AppCompatActivity() {
 
         val intent = Intent(this, AloneOrGroup::class.java)
         inside_btn.setOnClickListener {
+            intent.putExtra("indoor", true)
             startActivity(intent)
         }
         outside_btn.setOnClickListener {
+            intent.putExtra("indoor", false)
             startActivity(intent)
         }
         inside_outside_btn.setOnClickListener {
+            val booleanList = arrayListOf<Boolean>(true, false)
+            //Shuffle boolean list and take first in the shuffled list. Take on getting random.
+            intent.putExtra("indoor", booleanList.shuffled().take(1)[0])
             startActivity(intent)
         }
     }

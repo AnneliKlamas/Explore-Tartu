@@ -17,6 +17,7 @@ import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
 import com.example.exploretartu.R
+import com.example.exploretartu.firebase.util.FirebaseUtil
 import com.example.exploretartu.ui.scanner.ScannerActivity
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -40,6 +41,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private val SCANNER_REQUEST_CODE = 100
     private lateinit var mMap: GoogleMap
     private lateinit var helper: LocationHelper
+    private val util = FirebaseUtil
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,6 +89,15 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.isMyLocationEnabled = true
 
         helper = LocationHelper(applicationContext)
+        /** Get task location
+        val destLocation = LatLng(0.0, 0.0)
+        val myLocation= helper.getCurrentLocationUsingGPS()
+        myLocation?.apply {
+            val curPos = LatLng(this.latitude, this.longitude)
+            destLocation.apply {
+                findAndDrawPath(curPos, destLocation)
+            }
+        }*/
     }
 
     fun findAndDrawPath(currentPos: LatLng, destPos: LatLng){
@@ -141,15 +152,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             if (resultCode == Activity.RESULT_OK){
                 val scanResult: String? = data?.getStringExtra("scanResult")
                 Toast.makeText(this, "$scanResult", Toast.LENGTH_SHORT).show()
-
-                val destLocation = LatLng(59.379831, 24.662455)
-                val myLocation= helper.getCurrentLocationUsingGPS()
-                myLocation?.apply {
-                    val curPos = LatLng(this.latitude, this.longitude)
-                    destLocation.apply {
-                        findAndDrawPath(curPos, destLocation)
-                    }
-                }
             }
         }
     }
