@@ -48,10 +48,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             intent.getParcelableExtra("task2")!!
         }
 
-        //Toast.makeText(this, task.toString(), Toast.LENGTH_SHORT).show()
-
-        val visit: String = tv_visit.text.toString()
-        tv_visit.text = "$visit ${task.taskName}"
+        tv_visit.text = getString(R.string.visit, task.taskName)
 
         val mapFragment =
             supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
