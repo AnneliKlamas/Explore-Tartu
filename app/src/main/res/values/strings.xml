@@ -56,6 +56,7 @@ any budget?</string>
     <string name="add_activity">Add activity</string>
     <string name="home">Home</string>
     <string name="concratulations">Concratulations You completed Your task!</string>
+    <string name="settings">Settings</string>
 
     <!-- Error messages -->
     <string name="min_error">Please fill minimal sum</string>

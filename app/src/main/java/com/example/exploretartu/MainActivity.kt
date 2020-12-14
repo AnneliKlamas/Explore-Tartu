@@ -19,6 +19,7 @@ import androidx.appcompat.widget.Toolbar
 import com.example.exploretartu.firebase.util.FirebaseUtil
 import com.example.exploretartu.ui.login.LoginActivity
 import com.example.exploretartu.ui.map.MapActivity
+import com.example.exploretartu.ui.settings.SettingsActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.karumi.dexter.Dexter
@@ -30,7 +31,6 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private val util = FirebaseUtil
     private lateinit var auth: FirebaseAuth
     private lateinit var user: FirebaseUser
 
@@ -88,12 +88,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.item_logout -> {
-                logOut()
-                true
-            }
             R.id.action_settings -> {
-                startMapActivity()
+                startSettingsActivity()
                 true
             }
             else -> {
@@ -108,20 +104,13 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    private fun logOut(){
-        util.logOut()
-        Toast.makeText(this, "Logging out!", Toast.LENGTH_SHORT).show()
-        startLoginActivity()
-    }
-
-    private fun startLoginActivity(){
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
-
     private fun startMapActivity(){
         val intent = Intent(this, MapActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun startSettingsActivity(){
+        val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
     }
 }

@@ -14,6 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExploreTartu">
+        <activity android:name=".ui.settings.SettingsActivity"/>
         <activity android:name=".ui.Congartulations"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
