@@ -16,27 +16,41 @@ class ChooseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose)
-
         db.getMatchingTasks(intent.getDoubleExtra("budgetMin",0.0),
-            intent.getDoubleExtra("budgetMax",10000.0),
-            intent.getIntExtra("group", 1),
-            intent.getBooleanExtra("indoor", true)){
+                intent.getDoubleExtra("budgetMax",10000.0),
+                intent.getIntExtra("group", 1),
+                intent.getBooleanExtra("indoor", true)){
             task1, task2 ->
             option1_btn.text=task1.taskName
             option2_btn.text=task2.taskName
-            val intent = Intent(this, MapActivity::class.java)
-            intent.putExtra("task1", task1)
-            intent.putExtra("task2", task2)
-            }
+        }
+
 
 
         option1_btn.setOnClickListener {
-            intent.putExtra("isTask1", true)
-            startActivity(intent)
+            startMapActivity(true)
         }
         option2_btn.setOnClickListener {
-            intent.putExtra("isTask1", false)
+            startMapActivity(false)
+        }
+    }
+
+    fun startMapActivity(task1Boolean: Boolean){
+        db.getMatchingTasks(intent.getDoubleExtra("budgetMin",0.0),
+                intent.getDoubleExtra("budgetMax",10000.0),
+                intent.getIntExtra("group", 1),
+                intent.getBooleanExtra("indoor", true)){
+            task1, task2 ->
+
+            val intent = Intent(this, MapActivity::class.java)
+            if (task1Boolean){
+                intent.putExtra("task", task1)
+            }
+            else{
+                intent.putExtra("task", task2)
+            }
             startActivity(intent)
+            finish()
         }
     }
 }

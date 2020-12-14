@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 override fun onPermissionsChecked(report: MultiplePermissionsReport) {
                     report?.let {
                         if(report.areAllPermissionsGranted()){
-                            Toast.makeText(applicationContext, "OK", Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(applicationContext, "OK", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

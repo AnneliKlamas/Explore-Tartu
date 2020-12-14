@@ -16,6 +16,7 @@ import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
+import com.example.exploretartu.MainActivity
 import com.example.exploretartu.R
 import com.example.exploretartu.firebase.util.FirebaseUtil
 import com.example.exploretartu.ui.scanner.ScannerActivity
@@ -43,10 +44,15 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var helper: LocationHelper
     private val util = FirebaseUtil
+    private lateinit var task: com.example.exploretartu.dao.Task
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
+
+        task = intent.getParcelableExtra<com.example.exploretartu.dao.Task>("task")!!
+        //Toast.makeText(this, task.toString(), Toast.LENGTH_SHORT).show()
 
         val mapFragment =
             supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
@@ -58,6 +64,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
+
         mMap = googleMap
         if (ActivityCompat.checkSelfPermission(
                 this,
@@ -90,15 +97,15 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.isMyLocationEnabled = true
 
         helper = LocationHelper(applicationContext)
-        /** Get task location
-        val destLocation = LatLng(0.0, 0.0)
+
+        val destLocation = LatLng(task.taskLocation[0], task.taskLocation[1])
         val myLocation= helper.getCurrentLocationUsingGPS()
         myLocation?.apply {
             val curPos = LatLng(this.latitude, this.longitude)
             destLocation.apply {
                 findAndDrawPath(curPos, destLocation)
             }
-        }*/
+        }
     }
 
     fun findAndDrawPath(currentPos: LatLng, destPos: LatLng){
@@ -153,6 +160,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             if (resultCode == Activity.RESULT_OK){
                 val scanResult: String? = data?.getStringExtra("scanResult")
                 Toast.makeText(this, "$scanResult", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
     }
