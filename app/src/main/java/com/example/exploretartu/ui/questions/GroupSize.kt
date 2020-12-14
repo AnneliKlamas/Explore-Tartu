@@ -17,10 +17,10 @@ class GroupSize : AppCompatActivity() {
                     group_size_tv.error = getString(R.string.too_big_group)
                 }
                 else{
-                    val intent = Intent(this, Budget::class.java)
-                    intent.putExtra("indoor", intent.getBooleanExtra("indoor", true))
-                    intent.putExtra("group", group_size_tv.text.toString().toInt())
-                    startActivity(intent)
+                    val intentBudget = Intent(this, Budget::class.java)
+                    intentBudget.putExtra("indoor", intent.getBooleanExtra("indoor", true))
+                    intentBudget.putExtra("group", group_size_tv.text.toString().toInt())
+                    startActivity(intentBudget)
                 }
             }
             else{
