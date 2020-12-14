@@ -40,7 +40,7 @@ any budget?</string>
     <string name="to">To:</string>
     <string name="options">There are Your options:</string>
     <string name="dont_like">I don’t like both of them</string>
-    <string name="visit">You are going to visit</string>
+    <string name="visit">You are going to </string>
 
     <string name="activity_name">Activity name</string>
     <string name="task_location_coordinates">Task location coordinates</string>
@@ -53,6 +53,9 @@ any budget?</string>
     <string name="maximum">Maximum</string>
     <string name="longitude">Longitude</string>
     <string name="how_many_people">How many people can participate?</string>
+    <string name="add_activity">Add activity</string>
+    <string name="home">Home</string>
+    <string name="concratulations">Concratulations You completed Your task!</string>
 
     <!-- Error messages -->
     <string name="min_error">Please fill minimal sum</string>
@@ -68,9 +71,5 @@ any budget?</string>
     <string name="empty_min_person">Please add minimum number of people</string>
     <string name="empty_max_person">Please add maximum number of people</string>
     <string name="select_indoor_or">Please select indoor or outdoor</string>
-
-    <string name="add_activity">Add activity</string>
-    <string name="home">Home</string>
-    <string name="concratulations">Concratulations You completed Your task!</string>
 
 </resources>

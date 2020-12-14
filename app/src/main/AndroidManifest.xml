@@ -14,17 +14,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExploreTartu">
-        <activity android:name=".ui.Congartulations"></activity>
-        <activity android:name=".ui.questions.ChooseActivity" />
-        <activity android:name=".ui.questions.ExactBudget" />
-        <activity android:name=".ui.questions.Budget" />
-        <activity android:name=".ui.questions.GroupSize" />
-        <activity android:name=".ui.questions.AloneOrGroup" />
-        <activity android:name=".ui.questions.Weather" />
-        <activity android:name=".ui.register.RegisterActivity" />
-        <activity android:name=".ui.map.MapActivity" />
-        <activity android:name=".ui.scanner.ScannerActivity" />
-        <activity android:name=".ui.login.LoginActivity">
+        <activity android:name=".ui.Congartulations"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.questions.ChooseActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.questions.ExactBudget"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.questions.Budget"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.questions.GroupSize"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.questions.AloneOrGroup"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.questions.Weather"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.register.RegisterActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.map.MapActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.scanner.ScannerActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.login.LoginActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,7 +56,9 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.ExploreTartu.NoActionBar" />
+            android:theme="@style/Theme.ExploreTartu.NoActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
