@@ -18,6 +18,8 @@ class GroupSize : AppCompatActivity() {
                 }
                 else{
                     val intent = Intent(this, Budget::class.java)
+                    intent.putExtra("indoor", intent.getBooleanExtra("indoor", true))
+                    intent.putExtra("group", group_size_tv.text.toString().toInt())
                     startActivity(intent)
                 }
             }

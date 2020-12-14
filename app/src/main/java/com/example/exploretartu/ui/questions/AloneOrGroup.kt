@@ -10,11 +10,13 @@ class AloneOrGroup : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alone_or_group)
+
         val budgetIntent = Intent(this, Budget::class.java)
+
         budgetIntent.putExtra("indoor", intent.getBooleanExtra("indoor", true))
+
         alone_btn.setOnClickListener {
-            budgetIntent.putExtra("minPersons", 1)
-            budgetIntent.putExtra("maxPersons", 1)
+            budgetIntent.putExtra("group", 1)
             startActivity(budgetIntent)
         }
 
