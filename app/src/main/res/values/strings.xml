@@ -34,7 +34,7 @@
 any budget?</string>
     <string name="free">Yes! I am saving at the moment. So I want my activity to be free</string>
     <string name="exactAmount">Yes! I know exactly how much I want to spend. From: ___ To: ___</string>
-    <string name="noBudget">No! Free cheese is only found in the mousetrap. I don’t care how much my activity costs</string>
+    <string name="noBudget">No! Free cheese is only found in the mousetrap.</string>
     <string name="budget_size">What is Your budget size per person?</string>
     <string name="from">From:</string>
     <string name="to">To:</string>
@@ -57,6 +57,7 @@ any budget?</string>
     <string name="home">Home</string>
     <string name="concratulations">Concratulations You completed Your task!</string>
     <string name="settings">Settings</string>
+    <string name="go_back">Go back</string>
 
     <!-- Error messages -->
     <string name="max_smaller_min">Max budget value smaller than minimum!</string>
@@ -73,7 +74,12 @@ any budget?</string>
     <string name="empty_min_person">Please add minimum number of people</string>
     <string name="empty_max_person">Please add maximum number of people</string>
     <string name="select_indoor_or">Please select indoor or outdoor</string>
-    <string name="go_back">Go back</string>
     <string name="no_activities">Sorry we don\'t have activities that match Your description.</string>
+    <string name="empty_name">Please add Your name</string>
+    <string name="incorrect_email">Please check Your email</string>
+    <string name="short_password">Password too short</string>
+    <string name="fill_email">Please fill Your email</string>
+    <string name="fill_password">Please fill Your password</string>
+
 
 </resources>

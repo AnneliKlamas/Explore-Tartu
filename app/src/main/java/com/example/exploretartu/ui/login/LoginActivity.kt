@@ -68,22 +68,33 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun startEmailLogin(){
-        auth.signInWithEmailAndPassword(et_login_email.text.toString(),
-            et_login_password.text.toString())
-            .addOnCompleteListener{task ->
-                if (task.isSuccessful){
-                    val user = auth.currentUser
-                    if (user != null) {
-                        Toast.makeText(this,
-                            "Successfully Logged in!\n" +
-                                    "Welcome back, ${user.displayName}!", Toast.LENGTH_LONG).show()
+        var allCorrect = true
+        if(et_login_email.text.toString().isBlank()){
+            et_login_email.error = getString(R.string.fill_email)
+            allCorrect = false
+        }
+        if(et_login_password.text.toString().isBlank()){
+            et_login_password.error = getString(R.string.fill_password)
+            allCorrect = false
+        }
+        if(allCorrect){
+            auth.signInWithEmailAndPassword(et_login_email.text.toString(),
+                et_login_password.text.toString())
+                .addOnCompleteListener{task ->
+                    if (task.isSuccessful){
+                        val user = auth.currentUser
+                        if (user != null) {
+                            Toast.makeText(this,
+                                "Successfully Logged in!\n" +
+                                        "Welcome back, ${user.displayName}!", Toast.LENGTH_LONG).show()
+                        }
+                        startMainActivity()
                     }
-                    startMainActivity()
+                    else {
+                        Toast.makeText(this, "Error when logging in, check credentials!", Toast.LENGTH_SHORT).show()
+                    }
                 }
-                else {
-                    Toast.makeText(this, "Error when logging in, check credentials!", Toast.LENGTH_SHORT).show()
-                }
-            }
+        }
     }
 
     private fun startGoogleLogin(){

@@ -22,10 +22,23 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         bt_register_account.setOnClickListener {
+            var allCorrect = true
             val name: String = et_register_name.text.toString()
             val email: String = et_register_email.text.toString()
             val password: String = et_register_password.text.toString()
-            if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() && password.isNotBlank() && name.isNotBlank()){
+            if(name.isBlank()){
+                et_register_name.error = getString(R.string.empty_name)
+                allCorrect = false
+            }
+            if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                et_register_email.error = getString(R.string.incorrect_email)
+                allCorrect = false
+            }
+            if(password.isBlank()&&password.length<6){
+                et_register_password.error = getString(R.string.short_password)
+                allCorrect = false
+            }
+            if (allCorrect){
                 startRegisterNewUser(email, password, name)
             }
         }
