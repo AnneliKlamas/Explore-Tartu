@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.transition.Visibility
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.Toast
 import com.example.exploretartu.R
 import com.example.exploretartu.firebase.util.FirebaseUtil
 import com.example.exploretartu.ui.map.MapActivity
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException
 import kotlinx.android.synthetic.main.activity_choose.*
 
 class ChooseActivity : AppCompatActivity() {
@@ -30,17 +33,39 @@ class ChooseActivity : AppCompatActivity() {
                 intent.getIntExtra("group", 1),
                 intent.getBooleanExtra("indoor", true)){
             task1, task2 ->
-            option1_btn.text=task1.taskName
-            option2_btn.text=task2.taskName
+
+            if(task1.taskName==""){
+                option1_btn.visibility = GONE
+                option2_btn.visibility = GONE
+                generate_new_btn.visibility = GONE
+                go_back_btn.visibility = VISIBLE
+                no_activities_tv.visibility = VISIBLE
+
+            }
+            else if(task2.taskName==""){
+                option2_btn.visibility = GONE
+                generate_new_btn.visibility = GONE
+                go_back_btn.visibility = VISIBLE
+                no_activities_tv.visibility = GONE
+
+            }
+            else{
+
+                option1_btn.text=task1.taskName
+                option2_btn.text=task2.taskName
+
+                option1_btn.visibility = VISIBLE
+                option2_btn.visibility = VISIBLE
+                generate_new_btn.visibility = VISIBLE
+                go_back_btn.visibility = GONE
+                no_activities_tv.visibility = GONE
+            }
+
 
             //Progressbar is set gone
             pb_progress.visibility = View.GONE
             toast.cancel()
 
-            //Show
-            option1_btn.visibility = View.VISIBLE
-            option2_btn.visibility = View.VISIBLE
-            generate_new_btn.visibility = View.VISIBLE
         }
 
         option1_btn.setOnClickListener {
@@ -56,6 +81,10 @@ class ChooseActivity : AppCompatActivity() {
 
         generate_new_btn.setOnClickListener {
             generateActivities(intentMap)
+        }
+
+        go_back_btn.setOnClickListener {
+            finish()
         }
     }
 
